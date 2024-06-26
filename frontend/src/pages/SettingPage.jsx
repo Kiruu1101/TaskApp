@@ -18,8 +18,7 @@ const SettingPage = () => {
   const { handleSubmit, getValues, formState, register, reset, resetField } =
     useForm({
       defaultValues: { 
-        name: userName,
-        email: userEmail, 
+        name: userName 
       },
     });
 
@@ -74,6 +73,8 @@ const SettingPage = () => {
           label={<AiOutlineMail/>}
           settings
           register={{ ...register("email") }}
+          defaultValues={placeholder}
+          
         />
         <FormRowBox
           id="oldPassword"
