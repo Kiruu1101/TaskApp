@@ -40,7 +40,7 @@ export const FormWrapper = styled.section`
   form ~ p {
     margin: 2rem 0;
     text-align: center;
-    color: gray;
+    color: #a69d9d;
     font-size: 1rem;
   }
 `;

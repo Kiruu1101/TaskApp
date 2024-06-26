@@ -29,10 +29,9 @@ export const FormRow = styled.div`
     }
     /* class for lock icon of password field */
     .fill-icon {
-      fill: #9da6a6;
+      fill: #a69d9d;
       font-size: 1.4rem;
     }
-      // #d9d9d9
   }
   input {
     padding: 0.5em;
