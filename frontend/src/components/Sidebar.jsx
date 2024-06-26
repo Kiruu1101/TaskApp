@@ -46,11 +46,11 @@ const Sidebar = () => {
         <Modal.Open name="logout">
           <button className="logout-btn">
             <img src={logoutIcon} alt="logout icon" />
-            <span>Logout</span>
+            <span>Log out</span>
           </button>
         </Modal.Open>
         <Modal.Window windowName="logout">
-          <ConfirmationWindow confirmTo="Logout" onConfirm={onConfirmation} />
+          <ConfirmationWindow confirmTo="Log out" onConfirm={onConfirmation} />
         </Modal.Window>
       </Modal>
     </SidebarWrapper>
