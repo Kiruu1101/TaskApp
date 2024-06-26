@@ -24,7 +24,7 @@ export const FormRow = styled.div`
     justify-content: center;
     svg {
       font-size: 1.6rem;
-      stroke: #a69d9d;
+      stroke: gray;
       margin-right: 0.3rem;
     }
     /* class for lock icon of password field */
