@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import toast from "react-hot-toast";
 import { useUpdateUserMutation } from "../slices/authApiSlice";
-import { setCredentials } from "../slices/authSlice";
+import { logout, setCredentials } from "../slices/authSlice";
 import { AiOutlineMail } from "react-icons/ai";
 
 const SettingPage = () => {
@@ -42,6 +42,7 @@ const SettingPage = () => {
       toast.success("Your profile updated");
       resetField("password");
       resetField("oldPassword");
+      dispatch(logout());
     } catch (error) {
       toast.error(error?.data?.message);
     }
