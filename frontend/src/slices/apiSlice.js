@@ -11,7 +11,7 @@ async function baseQueryWithAuth(arg, api, extra) {
   const result = await baseQuery(arg, api, extra);
   if (result.error && result.error.status === 401) {
     api.dispatch(logout());
-    toast.error("Your token is expired, please login again");
+    toast.error("Your session token is expired, please login again");
   }
   return result;
 }

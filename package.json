@@ -1,7 +1,7 @@
 {
-  "name": "final-evaluation-task",
+  "name": "kiran-chavan-final-evaluation-project-batch-jan-2024",
   "version": "1.0.0",
-  "description": "This is final eval project",
+  "description": "This is Pro-manage (Task manager app). Final evaluation project. Batch Jan-24",
   "type": "module",
   "main": "server.js",
   "scripts": {

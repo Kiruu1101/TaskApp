@@ -38,7 +38,7 @@ export const DashboardWrapper = styled.section`
     text-transform: capitalize;
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
     span {
       color: var(--black);
     }
