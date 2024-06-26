@@ -70,7 +70,7 @@ const SettingPage = () => {
           id ="email"
           placeholder="Update Email"
           type='email'
-          label={<HiOutlineUser/>}
+          // label={<HiOutlineUser/>}
           settings
           register={{ ...register("email") }}
         />
@@ -86,7 +86,7 @@ const SettingPage = () => {
         />
         <FormRowBox
           id="password"
-          placeholder="Password"
+          placeholder="New Password"
           type="password"
           label={<SlLock className="fill-icon" />}
           settings
