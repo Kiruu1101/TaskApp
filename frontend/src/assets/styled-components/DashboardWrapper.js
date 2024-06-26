@@ -32,13 +32,13 @@ export const DashboardWrapper = styled.section`
     }
   }
   .greet-user {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 600;
     letter-spacing: 0.8px;
     text-transform: capitalize;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 1 rem;
     span {
       color: var(--black);
     }
