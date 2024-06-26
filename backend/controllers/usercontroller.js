@@ -27,7 +27,9 @@ const logoutUser = (req, res) => {
   res.status(StatusCodes.OK).json({ message: "User logged out" });
 };
 const updateUser = async (req, res) => {
+
   let userToUpdate = await UserModel.findOne({ _id: req.user._id });
+
   if (req.body.name && req.body.password) {
     const isOldPasswordCorrect = await userToUpdate.comparePassword(
       req.body.oldPassword
@@ -37,18 +39,32 @@ const updateUser = async (req, res) => {
 
     userToUpdate.name = req.body.name;
     userToUpdate.password = req.body.password;
+
   } else if (req.body.name) {
     userToUpdate.name = req.body.name;
+
   } else if (req.body.password) {
     const isOldPasswordCorrect = await userToUpdate.comparePassword(
       req.body.oldPassword
     );
     if (!isOldPasswordCorrect)
       throw new BadRequestError("Old password is incorrct");
+
     userToUpdate.password = req.body.password;
   }
+
+  if(req.body.email){
+    const isEmailTaken = await UserModel.findOne({ email: req.body.email });
+    if (isEmailTaken && isEmailTaken._id.toString() != req.user._id.toString()){
+      throw new BadRequestError("Email already in use");
+    }
+    userToUpdate.email = req.body.email;
+  }
+
   let newUser = await userToUpdate.save();
+
   const newUserWithoutPass = newUser.removePassword();
+
   res.status(StatusCodes.OK).json({ user: newUserWithoutPass });
 };
 export { registerUser, loginUser, logoutUser, updateUser };

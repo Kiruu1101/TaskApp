@@ -8,23 +8,34 @@ import { useDispatch, useSelector } from "react-redux";
 import toast from "react-hot-toast";
 import { useUpdateUserMutation } from "../slices/authApiSlice";
 import { setCredentials } from "../slices/authSlice";
+
 const SettingPage = () => {
   const { user } = useSelector((state) => state.user);
   const [userName, setUserName] = useState(user.name);
+  const [userEmail, setUserEmail] = useState(user.email);
+
   const { handleSubmit, getValues, formState, register, reset, resetField } =
     useForm({
-      defaultValues: { name: userName },
+      defaultValues: { 
+        name: userName,
+        email: userEmail, 
+      },
     });
+
   const dispatch = useDispatch();
   const [updateUser] = useUpdateUserMutation();
+
   const onSubmit = async (data) => {
-    const { name, password, oldPassword } = data;
+    const { name, email, password, oldPassword } = data;
     let profileFieldToUpdate = {};
+
     if (name) profileFieldToUpdate.name = name;
+    if(email) profileFieldToUpdate.email = email;
     if (oldPassword && password) {
       profileFieldToUpdate.oldPassword = oldPassword;
       profileFieldToUpdate.password = password;
     }
+
     try {
       const res = await updateUser(profileFieldToUpdate).unwrap();
       dispatch(setCredentials(res.user));
@@ -35,11 +46,14 @@ const SettingPage = () => {
       toast.error(error?.data?.message);
     }
   };
+
   useEffect(() => {
     if (user) {
       setUserName(user.name);
+      setUserEmail(user.email);
     }
   }, [user]);
+
   return (
     <FormWrapper $settings>
       <h4 className="head">Settings</h4>
@@ -51,6 +65,14 @@ const SettingPage = () => {
           label={<HiOutlineUser />}
           settings
           register={{ ...register("name") }}
+        />
+        <FormRowBox
+          id ="email"
+          placeholder="Update Email"
+          type='email'
+          label={<HiOutlineUser/>}
+          settings
+          register={{ ...register("email") }}
         />
         <FormRowBox
           id="oldPassword"
@@ -82,6 +104,7 @@ const SettingPage = () => {
           }}
           error={formState?.errors?.password?.message}
         />
+
 
         <button type="submit" className="btn">
           Update

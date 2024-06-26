@@ -13,9 +13,11 @@ const FormRowBox = ({
   const [passwordType, setPasswordType] = useState(() =>
     id === "password" ? type : null
   );
+
   const handlePasswordTypeChange = () => {
     setPasswordType((prev) => (prev === "password" ? "text" : "password"));
   };
+  
   return (
     <>
       <FormRow $settings={settings} {...register}>
