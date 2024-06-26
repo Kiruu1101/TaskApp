@@ -12,6 +12,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.1",
     "dayjs": "^1.11.10",
+    "final-evaluation-task": "file:..",
     "react": "^18.2.0",
     "react-copy-to-clipboard": "^5.1.0",
     "react-datepicker": "^6.1.0",
