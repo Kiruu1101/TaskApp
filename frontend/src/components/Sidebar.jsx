@@ -50,7 +50,7 @@ const Sidebar = () => {
           </button>
         </Modal.Open>
         <Modal.Window windowName="logout">
-          <ConfirmationWindow confirmTo="Log out" onConfirm={onConfirmation} />
+          <ConfirmationWindow confirmTo="Logout" onConfirm={onConfirmation} />
         </Modal.Window>
       </Modal>
     </SidebarWrapper>
