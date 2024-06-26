@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import toast from "react-hot-toast";
 import { useUpdateUserMutation } from "../slices/authApiSlice";
 import { setCredentials } from "../slices/authSlice";
+import { AiOutlineMail } from "react-icons/ai";
 
 const SettingPage = () => {
   const { user } = useSelector((state) => state.user);
@@ -70,7 +71,7 @@ const SettingPage = () => {
           id ="email"
           placeholder="Update Email"
           type='email'
-          // label={<HiOutlineUser/>}
+          label={<AiOutlineMail/>}
           settings
           register={{ ...register("email") }}
         />
