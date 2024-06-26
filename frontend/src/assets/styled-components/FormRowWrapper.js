@@ -29,7 +29,7 @@ export const FormRow = styled.div`
     }
     /* class for lock icon of password field */
     .fill-icon {
-      fill: #a69d9d;
+      fill: gray;
       font-size: 1.4rem;
     }
   }
@@ -37,7 +37,7 @@ export const FormRow = styled.div`
     padding: 0.5em;
     border: none;
     font-size: 1rem;
-    color: #a69d9d;
+    color: gray;
     width: 100%;
     &:focus {
       outline: none;
@@ -46,7 +46,7 @@ export const FormRow = styled.div`
   .eye-icon,
   .eye-icon-active {
     font-size: 1.6rem;
-    fill: #a69d9d;
+    fill: gray;
     cursor: pointer;
   }
   .eye-icon-active {
