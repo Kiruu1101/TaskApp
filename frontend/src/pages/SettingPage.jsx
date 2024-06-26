@@ -70,10 +70,50 @@ const SettingPage = () => {
           id ="email"
           placeholder="Update Email"
           type='email'
-          label={<AiOutlineMail/>}
+          label={<AiOutlineMail className="fill-icon"/>}
           settings
           register={{ ...register("email") }}          
         />
+      {/* selecting the correct label */}
+      <FormRowBox
+          id ="email"
+          placeholder="Update Email"
+          type='email'
+          label={<FaEnvelope/>}
+          settings
+          register={{ ...register("email") }}          
+        />
+        <FormRowBox
+          id ="email"
+          placeholder="Update Email"
+          type='email'
+          label={<IoMdMail/>}
+          settings
+          register={{ ...register("email") }}          
+        />
+        <FormRowBox
+          id ="email"
+          placeholder="Update Email"
+          type='email'
+          label={<TiMail/>}
+          settings
+          register={{ ...register("email") }}  
+        />
+        <FormRowBox
+          id ="email"
+          placeholder="Update Email"
+          type='email'
+          label={<MdiEmail/>}
+          settings
+          register={{ ...register("email") }}  
+        />
+
+        {/*  */}
+
+
+
+
+
         <FormRowBox
           id="oldPassword"
           placeholder="Old password"
