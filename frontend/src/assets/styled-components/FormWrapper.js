@@ -12,7 +12,7 @@ export const FormWrapper = styled.section`
   }
   .btn {
     display: block;
-    width: ${(props) => (props.$settings ? "38%" : "100%")};
+    width: ${(props) => (props.$settings ? "40%" : "100%")};
     padding: 0.8rem;
     border-radius: 100px;
     cursor: pointer;
@@ -27,25 +27,6 @@ export const FormWrapper = styled.section`
     &:hover {
       background-color: #0d6f7e;
     }
-
-    .btnUpdate {
-    display: block;
-    width: ${(props) => (props.$settings ? "50%" : "100%")};
-    padding: 0.8rem;
-    border-radius: 100px;
-    cursor: pointer;
-    background-color: #17a2b8;
-    color: white;
-    border: transparent;
-    transition: all 0.3s;
-    font-weight: 500;
-    letter-spacing: 1px;
-
-    margin-top: 3rem;
-    &:hover {
-      background-color: #0d6f7e;
-    }
-
     &.btn-outline {
       background-color: white;
       color: #17a2b8;
@@ -53,6 +34,24 @@ export const FormWrapper = styled.section`
       text-align: center;
       text-decoration: none;
       margin-top: 0;
+    }
+  }
+  .btn1 {
+    display: block;
+    width: ${(props) => (props.$settings ? "40%" : "100%")};
+    padding: 0.8rem;
+    border-radius: 100px;
+    cursor: pointer;
+    background-color: #17a2b8;
+    color: white;
+    border: transparent;
+    transition: all 0.3s;
+    font-weight: 500;
+    letter-spacing: 1px;
+
+    margin-top: 3rem;
+    &:hover {
+      background-color: #0d6f7e;
     }
   }
 
