@@ -29,7 +29,7 @@ export const FormWrapper = styled.section`
     }
     &.btn-outline {
       background-color: white;
-      height: 5rem;
+      height: 0.8rem;
       color: #17a2b8;
       border: 1px solid #17a2b8;
       text-align: center;
