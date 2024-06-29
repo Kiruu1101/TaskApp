@@ -29,7 +29,7 @@ export const FormWrapper = styled.section`
     }
     &.btn-outline {
       background-color: white;
-      height:10%
+      height:10%;
       color: #17a2b8;
       border: 1px solid #17a2b8;
       text-align: center;
@@ -39,7 +39,7 @@ export const FormWrapper = styled.section`
   }
   .btn1 {
     display: block;
-    width: ${(props) => (props.$settings ? "45%" : "100%")};
+    width: ${(props) => (props.$settings ? "40%" : "100%")};
     padding: 0.8rem;
     border-radius: 100px;
     cursor: pointer;
