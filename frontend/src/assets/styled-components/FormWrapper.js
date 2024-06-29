@@ -12,15 +12,15 @@ export const FormWrapper = styled.section`
   }
   .btn {
     display: block;
-    width: ${(props) => (props.$settings ? "40%" : "100%")};
-    padding: 0.9 rem;
+    width: ${(props) => (props.$settings ? "40%" : "100%")};//
+    padding: 0.9 rem;//
     border-radius: 100px;
     cursor: pointer;
     background-color: #17a2b8;
     color: white;
     border: transparent;
     transition: all 0.3s;
-    font-weight: 500;//
+    font-weight: 300;//
     letter-spacing: 1px;
 
     margin-top: 3rem;
