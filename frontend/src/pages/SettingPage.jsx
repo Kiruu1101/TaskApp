@@ -107,7 +107,7 @@ const SettingPage = () => {
         />
 
 
-        <button type="submit" className="btn">
+        <button type="submit" className="btnUpdate">
           Update
         </button>
       </form>
