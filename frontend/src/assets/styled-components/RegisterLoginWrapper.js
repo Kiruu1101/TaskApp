@@ -13,6 +13,10 @@ export const RegisterLoginWrapper = styled.div`
     max-height: 100vh;
     background-color: var(--primary-500);
   }
+
+
+
+  
   .welcome {
     display: flex;
     margin-top: -4rem;
@@ -20,7 +24,8 @@ export const RegisterLoginWrapper = styled.div`
     align-items: center;
     p {
       color: #fff;
-      font-size: 2rem;
+      font-family: 'Open Sans';
+      font-size: 33.0767px;
       letter-spacing: 1.5px;
       text-align: center;
       margin-bottom: 0.5rem;
