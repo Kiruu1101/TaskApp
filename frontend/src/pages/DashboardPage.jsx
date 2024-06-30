@@ -12,7 +12,6 @@ import styled from "styled-components";
 const OutlineUserFriends = styled(FaUserFriends)`
   fill: none;
   stroke: currentColor;
-  border: 1px;
 `;
 
 const DashboardPage = () => {
@@ -62,7 +61,7 @@ const DashboardPage = () => {
         {/*  */}
         <AddPeopleWrapper onClick={() => setIsModalOpen(true)}>
           {/* <AiOutlineUserAdd/>Add People */}
-          <OutlineUserFriends style={{ strokeWidth: 2 }} /> Add People
+          <OutlineUserFriends style={{ strokeWidth: 10 }} /> Add People
         </AddPeopleWrapper>
 
         <select
@@ -123,11 +122,11 @@ export default DashboardPage;
 // Styled components for "Add People" text and pop-ups
 const AddPeopleWrapper = styled.div`
   display: flex;
-  align-items: left;
+  align-items: center;
   color: gray;
   cursor: pointer;
   font-size: 1rem;
-  margin-left: 10px; /* Adjust spacing as needed */
+  margin-right: 100px; /* Adjust spacing as needed */
 
   svg {
     margin-right: 0.5rem;
@@ -146,6 +145,7 @@ const ModalWrapper = styled.div`
   justify-content: center;
   background: rgba(0, 0, 0, 0.5);
   z-index: 1000;
+  padding: 10px;
 `;
 
 const ModalContent = styled.div`
