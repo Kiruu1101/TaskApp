@@ -36,7 +36,7 @@ export const FormRow = styled.div`
   input {
     padding: 0.5em;
     border: none;
-    font-size: 1.6rem;
+    font-size: 1rem;
     color: gray;
     width: 100%;
     &:focus {

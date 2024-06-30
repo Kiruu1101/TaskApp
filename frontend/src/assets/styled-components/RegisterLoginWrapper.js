@@ -20,7 +20,7 @@ export const RegisterLoginWrapper = styled.div`
     align-items: center;
     p {
       color: #fff;
-      font-size: 1.8rem;
+      font-size: 2rem;
       letter-spacing: 1.5px;
       text-align: center;
       margin-bottom: 0.5rem;
