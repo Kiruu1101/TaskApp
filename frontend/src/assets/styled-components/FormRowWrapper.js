@@ -23,7 +23,7 @@ export const FormRow = styled.div`
     align-items: center;
     justify-content: center;
     svg {
-      font-size: 4rem;
+      font-size: 1.6rem;
       stroke: gray;
       margin-right: 0.3rem;
     }
@@ -36,7 +36,7 @@ export const FormRow = styled.div`
   input {
     padding: 0.5em;
     border: none;
-    font-size: 1rem;
+    font-size: 1.6rem;
     color: gray;
     width: 100%;
     &:focus {
