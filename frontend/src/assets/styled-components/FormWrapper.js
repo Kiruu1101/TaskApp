@@ -39,7 +39,7 @@ export const FormWrapper = styled.section`
   }
   .btn1 {
     display: block;
-    width: ${(props) => (props.$settings ? "43%" : "100%")};
+    width: ${(props) => (props.$settings ? "44%" : "100%")};
     padding: 0.8rem;
     border-radius: 100px;
     cursor: pointer;

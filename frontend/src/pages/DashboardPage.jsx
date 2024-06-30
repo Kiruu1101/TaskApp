@@ -126,7 +126,7 @@ const AddPeopleWrapper = styled.div`
   color: gray;
   cursor: pointer;
   font-size: 1rem;
-  margin-right: 800px; /* Adjust spacing as needed */
+  margin-right: 900px; /* Adjust spacing as needed */
 
   svg {
     margin-right: 0.5rem;
@@ -136,7 +136,6 @@ const AddPeopleWrapper = styled.div`
 
 const ModalWrapper = styled.div`
   position: fixed;
-  margin: 50px;
   top: 0;
   left: 0;
   right: 0;
@@ -176,7 +175,7 @@ const ModalContent = styled.div`
 
     .cancel {
       background: none;
-      border: 2px solid red;
+      border: 2px solid var(--red);
       color: red;
       border-radius: 20px;
       padding: 0.5rem 1rem;
