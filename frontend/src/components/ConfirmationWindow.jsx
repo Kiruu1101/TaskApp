@@ -4,7 +4,7 @@ import { ConfirmationWindowWrapper } from "../assets/styled-components/Confirmat
 const ConfirmationWindow = ({ confirmTo, onCloseModal, onConfirm }) => {
   return (
     <ConfirmationWindowWrapper>
-      <p>Are you sure you want to, {confirmTo}</p>
+      <p>Are you sure you want to {confirmTo}</p>
       <div className="cta-btns">
         <button
           className="confirm"
