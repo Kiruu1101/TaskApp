@@ -12,7 +12,7 @@ import styled from "styled-components";
 const OutlineUserFriends = styled(FaUserFriends)`
   fill: none;
   stroke: currentColor;
-  stroke-width: 10px;
+  stroke-width: 1.8rem;
 `;
 
 const DashboardPage = () => {
@@ -131,6 +131,7 @@ const AddPeopleWrapper = styled.div`
 
   svg {
     margin-right: 0.5rem;
+    margin-left: 0.5rem;
   }
 `;
 

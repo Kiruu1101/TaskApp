@@ -34,6 +34,6 @@ export const ConfirmationWindowWrapper = styled.div`
   }
   .cancel {
     border: 1.3px solid var(--red);
-    color: red;
+    color: var(--red);
   }
 `;
