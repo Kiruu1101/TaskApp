@@ -127,6 +127,7 @@ const AddPeopleWrapper = styled.div`
   color: gray;
   cursor: pointer;
   font-size: 1rem;
+  left: 16rem;
   margin-left: 10px; /* Adjust spacing as needed */
 
   svg {
@@ -155,7 +156,7 @@ const ModalContent = styled.div`
   border-radius: 10px;
   width: 400px;
   text-align: center;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  // box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 
   h4 {
     margin-bottom: 1rem;
