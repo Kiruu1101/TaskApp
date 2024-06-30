@@ -9,6 +9,11 @@ import { FaUserFriends } from 'react-icons/fa';
 
 import styled from "styled-components";
 
+const OutlineUserFriends = styled(FaUserFriends)`
+  fill: none;
+  stroke: currentColor;
+`;
+
 const DashboardPage = () => {
   const { daysFilter, setDayFilter, search, pathname } = useOutletContext();
 
@@ -56,7 +61,7 @@ const DashboardPage = () => {
         {/*  */}
         <AddPeopleWrapper onClick={() => setIsModalOpen(true)}>
           {/* <AiOutlineUserAdd/>Add People */}
-          <FaUserFriends/>Add People
+          <OutlineUserFriends style={{ strokeWidth: 2 }} /> Add People
         </AddPeopleWrapper>
 
         <select
@@ -121,7 +126,7 @@ const AddPeopleWrapper = styled.div`
   color: gray;
   cursor: pointer;
   font-size: 1rem;
-  margin-right: 10px; /* Adjust spacing as needed */
+  margin-left: 1px; /* Adjust spacing as needed */
 
   svg {
     margin-right: 0.5rem;
