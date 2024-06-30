@@ -5,7 +5,10 @@ import { formatedDate } from "../utils/calculate";
 import { useSelector } from "react-redux";
 import { useLocation, useNavigate, useOutletContext } from "react-router-dom";
 import { AiOutlineUserAdd } from "react-icons/ai";
+import { FaUserFriends } from 'react-icons/fa';
+
 import styled from "styled-components";
+
 const DashboardPage = () => {
   const { daysFilter, setDayFilter, search, pathname } = useOutletContext();
 
@@ -29,9 +32,13 @@ const DashboardPage = () => {
   };
 
   const handleAddEmail = () => {
-    if (email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (email && emailRegex.test(email)) {
       setIsModalOpen(false);
       setIsConfirmationOpen(true);
+      setEmailError("");
+    }else {
+      setEmailError("Invalid email format");
     }
   };
   
@@ -48,7 +55,8 @@ const DashboardPage = () => {
         <h2 className="title">Board</h2>
         {/*  */}
         <AddPeopleWrapper onClick={() => setIsModalOpen(true)}>
-          <AiOutlineUserAdd/>Add People
+          {/* <AiOutlineUserAdd/>Add People */}
+          <FaUserFriends/>Add People
         </AddPeopleWrapper>
 
         <select
@@ -113,10 +121,11 @@ const AddPeopleWrapper = styled.div`
   color: gray;
   cursor: pointer;
   font-size: 1rem;
-  margin-left: 10px; /* Adjust spacing as needed */
+  margin-right: 10px; /* Adjust spacing as needed */
 
   svg {
     margin-right: 0.5rem;
+    margin-left: 0.5rem;
   }
 `;
 
