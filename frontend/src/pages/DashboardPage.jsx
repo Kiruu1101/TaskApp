@@ -4,36 +4,53 @@ import KanbanBoard from "../components/KanbanBoard";
 import { formatedDate } from "../utils/calculate";
 import { useSelector } from "react-redux";
 import { useLocation, useNavigate, useOutletContext } from "react-router-dom";
+import { AiOutlineUserAdd } from "react-icons/ai";
+import styled from "styled-components";
 const DashboardPage = () => {
   const { daysFilter, setDayFilter, search, pathname } = useOutletContext();
 
-  // const { search, pathname } = useLocation();
-  // const queryParams = new URLSearchParams(location.search);
-  // const filterValue = queryParams.get("filter");
   const navigate = useNavigate();
-  // const [filterBy, setFilterBy] = useState(() =>
-  //   daysFilter ? daysFilter : "week"
-  // );
+
+  const { user } = useSelector((state) => state.user);
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
+  const [email, setEmail] = useState("");
+
+  useEffect(() => {
+    if (!daysFilter) setDayFilter("week");
+  }, [daysFilter, setDayFilter]);
+  
   const onChange = (e) => {
     setDayFilter(e.target.value);
     const searchParams = new URLSearchParams(search);
     searchParams.set("filter", e.target.value);
     navigate(`${pathname}?${searchParams}`);
   };
-  const { user } = useSelector((state) => state.user);
-  useEffect(() => {
-    if (!daysFilter) setDayFilter("week");
-  }, [daysFilter, setDayFilter]);
+
+  const handleAddEmail = () => {
+    if (email) {
+      setIsModalOpen(false);
+      setIsConfirmationOpen(true);
+    }
+  };
+  
+
   return (
     <DashboardWrapper>
       <div className="dashboard-header">
         <h3 className="greet-user">
-          <span>Welcome!</span> <span>{`${user.name}`}</span>
+          <span>Welcome! </span> <span>{`${user.name}`}</span>
         </h3>
         <span>{formatedDate(Date.now(), "D MMM,YYYY")}</span>
       </div>
       <div className="title-filter-container">
         <h2 className="title">Board</h2>
+        {/*  */}
+        <AddPeopleWrapper onClick={() => setIsModalOpen(true)}>
+          <AiOutlineUserAdd/>Add People
+        </AddPeopleWrapper>
+
         <select
           name="filter"
           id="filter"
@@ -48,6 +65,41 @@ const DashboardPage = () => {
       </div>
 
       <KanbanBoard />
+
+      {isModalOpen && (
+        <ModalWrapper>
+          <ModalContent>
+            <h4>Add people to the Board</h4>
+            <input
+              type='email'
+              placeholder="Enter the Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <div className="modal-buttons">
+              <button className="cancel" onClick={() => setIsModalOpen(false)}>
+                Cancel
+              </button>
+              <button className="add" onClick={handleAddEmail}>
+                Add Email
+              </button>
+            </div>
+          </ModalContent>
+        </ModalWrapper>
+      )}
+
+      {isConfirmationOpen && (
+        <ModalWrapper>
+          <ModalContent>
+            <h4>{email} is added to the board</h4>
+            <button className="confirm" onClick={() => setIsConfirmationOpen(false)}>
+              Okay, got it!
+            </button>
+          </ModalContent>
+        </ModalWrapper>
+      )}
+
+
     </DashboardWrapper>
   );
 };
