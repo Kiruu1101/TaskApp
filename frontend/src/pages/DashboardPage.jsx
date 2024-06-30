@@ -12,6 +12,7 @@ import styled from "styled-components";
 const OutlineUserFriends = styled(FaUserFriends)`
   fill: none;
   stroke: currentColor;
+  stroke-width: 3px;
 `;
 
 const DashboardPage = () => {
@@ -41,7 +42,7 @@ const DashboardPage = () => {
     if (email && emailRegex.test(email)) {
       setIsModalOpen(false);
       setIsConfirmationOpen(true);
-      setEmailError("");
+      setEmailError("Invalid email format");
     }else {
       setEmailError("Invalid email format");
     }
