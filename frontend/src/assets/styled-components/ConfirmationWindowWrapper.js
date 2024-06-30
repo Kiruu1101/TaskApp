@@ -10,22 +10,19 @@ export const ConfirmationWindowWrapper = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
     gap: 1rem;
-    margin-top: 1.5rem;
+    margin-top: 1.8rem;
   }
   .confirm,
   .cancel {
-    display: inline-block;
+    display: block;
     padding: 0.9rem 0;
-    border-radius: 30px;
+    border-radius: 15px;
     border: transparent;
     background-color: inherit;
     font-size: 0.9rem;
-    text-align: center;
     font-weight: 600;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     cursor: pointer;
   }
   .confirm {
@@ -35,15 +32,8 @@ export const ConfirmationWindowWrapper = styled.div`
       text-transform: capitalize;
     }
   }
-  .confirm:hover {
-    background-color: #27a5a7; /* Darker teal on hover */
-  }
   .cancel {
     border: 1.3px solid var(--red);
     color: var(--red);
-  }
-  .cancel:hover {
-    background-color: #fbe4e4; /* Light red background on hover */
-    color: #e74c3c; /* Keep the text color red */
   }
 `;
