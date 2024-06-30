@@ -61,7 +61,7 @@ const DashboardPage = () => {
         {/*  */}
         <AddPeopleWrapper onClick={() => setIsModalOpen(true)}>
           {/* <AiOutlineUserAdd/>Add People */}
-          <OutlineUserFriends style={{ strokeWidth: 20 }} /> Add People
+          <OutlineUserFriends style={{ strokeWidth: 40 }} /> Add People
         </AddPeopleWrapper>
 
         <select
@@ -126,7 +126,7 @@ const AddPeopleWrapper = styled.div`
   color: gray;
   cursor: pointer;
   font-size: 1rem;
-  margin-right: 200px; /* Adjust spacing as needed */
+  margin-right: 500px; /* Adjust spacing as needed */
 
   svg {
     margin-right: 0.5rem;
@@ -145,7 +145,7 @@ const ModalWrapper = styled.div`
   justify-content: center;
   background: rgba(0, 0, 0, 0.5);
   z-index: 1000;
-  padding: 10px;
+  padding: 20px;
 `;
 
 const ModalContent = styled.div`
