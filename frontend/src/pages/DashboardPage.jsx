@@ -105,3 +105,81 @@ const DashboardPage = () => {
 };
 
 export default DashboardPage;
+
+// Styled components for "Add People" text and pop-ups
+const AddPeopleWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  color: gray;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-left: 10px; /* Adjust spacing as needed */
+
+  svg {
+    margin-right: 0.5rem;
+  }
+`;
+
+const ModalWrapper = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+`;
+
+const ModalContent = styled.div`
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+
+  h4 {
+    margin-bottom: 1rem;
+  }
+
+  input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+
+  .modal-buttons {
+    display: flex;
+    justify-content: space-between;
+
+    .cancel {
+      background: none;
+      border: none;
+      color: red;
+      cursor: pointer;
+    }
+
+    .add {
+      background: #17a2b8;
+      border: none;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
+
+  .confirm {
+    background: #17a2b8;
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+  }
+`;
