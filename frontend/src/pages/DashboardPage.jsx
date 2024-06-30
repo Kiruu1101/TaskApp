@@ -135,17 +135,18 @@ const AddPeopleWrapper = styled.div`
   }
 `;
 
+
 const ModalWrapper = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
+  position: absolute;
+  width: 665px;
+  height: 284px;
+  top: calc(50% - 284px/2 + 50px);
+  left: calc(50% - 665px/2 + 68.5px);
+  // display: flex;
   align-items: center;
   justify-content: center;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
+  // z-index: 1000;
 `;
 
 const ModalContent = styled.div`
@@ -161,11 +162,14 @@ const ModalContent = styled.div`
   }
 
   input {
+    padding: 0.5em;
+    border: none;
+    font-size: 1rem;
+    color: gray;
     width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    &:focus {
+      outline: none;
+    }
   }
 
   .modal-buttons {
@@ -175,8 +179,8 @@ const ModalContent = styled.div`
 
     .cancel {
       background: none;
-      border: 2px solid red;
-      color: red;
+      border: 2px solid var(--red);
+      color: var(--red);
       border-radius: 20px;
       padding: 0.5rem 1rem;
       cursor: pointer;
@@ -187,7 +191,7 @@ const ModalContent = styled.div`
       border: none;
       color: white;
       padding: 0.5rem 1rem;
-      border-radius: 5px;
+      border-radius: 20px;
       cursor: pointer;
     }
   }
