@@ -34,7 +34,7 @@ export const FormWrapper = styled.section`
       border: 1px solid #17a2b8;
       text-align: center;
       text-decoration: none;
-      margin-top: 1;
+      margin-top: 0;
     }
   }
   .btn1 {

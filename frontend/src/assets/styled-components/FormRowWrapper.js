@@ -23,7 +23,7 @@ export const FormRow = styled.div`
     align-items: center;
     justify-content: center;
     svg {
-      font-size: 1.6rem;
+      font-size: 4rem;
       stroke: gray;
       margin-right: 0.3rem;
     }
