@@ -12,7 +12,7 @@ import styled from "styled-components";
 const OutlineUserFriends = styled(FaUserFriends)`
   fill: none;
   stroke: currentColor;
-  stroke-width: 3px;
+  stroke-width: 10px;
 `;
 
 const DashboardPage = () => {
@@ -123,15 +123,14 @@ export default DashboardPage;
 // Styled components for "Add People" text and pop-ups
 const AddPeopleWrapper = styled.div`
   display: flex;
-  align-items: center;
+  align-items: left;
   color: gray;
   cursor: pointer;
   font-size: 1rem;
-  margin-left: 1px; /* Adjust spacing as needed */
+  margin-left: 10px; /* Adjust spacing as needed */
 
   svg {
     margin-right: 0.5rem;
-    margin-left: 0.5rem;
   }
 `;
 
@@ -152,8 +151,9 @@ const ModalContent = styled.div`
   background: white;
   padding: 2rem;
   border-radius: 10px;
-  width: 300px;
+  width: 400px;
   text-align: center;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 
   h4 {
     margin-bottom: 1rem;
@@ -170,11 +170,14 @@ const ModalContent = styled.div`
   .modal-buttons {
     display: flex;
     justify-content: space-between;
+    margin-top: 1rem;
 
     .cancel {
       background: none;
-      border: none;
+      border: 2px solid red;
       color: red;
+      border-radius: 20px;
+      padding: 0.5rem 1rem;
       cursor: pointer;
     }
 
