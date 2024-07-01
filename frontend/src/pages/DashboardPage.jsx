@@ -152,12 +152,13 @@ const ModalContent = styled.div`
   background: white;
   padding: 2rem;
   border-radius: 10px;
-  width: 600px;
+  width: 500px;
   text-align: left;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 
   h4 {
-    margin-bottom: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
 
   input {
@@ -177,9 +178,9 @@ const ModalContent = styled.div`
       background: none;
       border: 2px solid var(--red);
       color: var(--red);
-      border-radius: 5px;
+      border-radius: 10px;
       text-align: center;
-      width: 50%;
+      width: 48%;
       padding: 0.5rem 1rem;
       cursor: pointer;
     }
@@ -189,10 +190,10 @@ const ModalContent = styled.div`
       border: none;
       color: white;
       padding: 0.5rem 1rem;
-      border-radius: 5px;
+      border-radius: 10px;
       cursor: pointer;
       text-align: center;
-      width: 50%
+      width: 48%
     }
   }
 
@@ -204,5 +205,6 @@ const ModalContent = styled.div`
     border-radius: 5px;
     cursor: pointer;
     width: 70%;
+    text-align: center;
   }
 `;

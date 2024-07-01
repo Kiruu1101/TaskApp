@@ -17,7 +17,7 @@ export const ConfirmationWindowWrapper = styled.div`
   .cancel {
     display: block;
     padding: 0.9rem 0;
-    border-radius: 15px;
+    border-radius: 20px;
     border: transparent;
     background-color: inherit;
     font-size: 0.9rem;
