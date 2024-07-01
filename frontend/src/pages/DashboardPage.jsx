@@ -152,8 +152,8 @@ const ModalContent = styled.div`
   background: white;
   padding: 2rem;
   border-radius: 10px;
-  width: 400px;
-  text-align: center;
+  width: 600px;
+  text-align: left;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 
   h4 {
@@ -179,7 +179,7 @@ const ModalContent = styled.div`
       color: var(--red);
       border-radius: 5px;
       text-align: center;
-      width: 45%;
+      width: 50%;
       padding: 0.5rem 1rem;
       cursor: pointer;
     }
@@ -192,7 +192,7 @@ const ModalContent = styled.div`
       border-radius: 5px;
       cursor: pointer;
       text-align: center;
-      width: 45%
+      width: 50%
     }
   }
 
