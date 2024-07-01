@@ -176,8 +176,10 @@ const ModalContent = styled.div`
     .cancel {
       background: none;
       border: 2px solid var(--red);
-      color: red;
-      border-radius: 20px;
+      color: var(--red);
+      border-radius: 5px;
+      text-align: center;
+      width: 45%;
       padding: 0.5rem 1rem;
       cursor: pointer;
     }
@@ -189,6 +191,8 @@ const ModalContent = styled.div`
       padding: 0.5rem 1rem;
       border-radius: 5px;
       cursor: pointer;
+      text-align: center;
+      width: 45%
     }
   }
 
@@ -199,6 +203,6 @@ const ModalContent = styled.div`
     padding: 0.5rem 1rem;
     border-radius: 5px;
     cursor: pointer;
-    width: 100%;
+    width: 70%;
   }
 `;
