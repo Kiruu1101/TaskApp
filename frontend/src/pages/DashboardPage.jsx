@@ -4,14 +4,15 @@ import KanbanBoard from "../components/KanbanBoard";
 import { formatedDate } from "../utils/calculate";
 import { useSelector } from "react-redux";
 import { useLocation, useNavigate, useOutletContext } from "react-router-dom";
-import { AiOutlineUserAdd } from "react-icons/ai";
 import { FaUserFriends } from 'react-icons/fa';
-
 import styled from "styled-components";
 
+// Customized styled icon to have an outline effect
 const OutlineUserFriends = styled(FaUserFriends)`
   fill: none;
   stroke: currentColor;
+  stroke-width: 1.5; /* Increase the stroke width for better visibility */
+  font-size: 1.5rem; /* Increase size if needed */
 `;
 
 const DashboardPage = () => {
@@ -24,11 +25,12 @@ const DashboardPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
   const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState("");
 
   useEffect(() => {
     if (!daysFilter) setDayFilter("week");
   }, [daysFilter, setDayFilter]);
-  
+
   const onChange = (e) => {
     setDayFilter(e.target.value);
     const searchParams = new URLSearchParams(search);
@@ -41,12 +43,11 @@ const DashboardPage = () => {
     if (email && emailRegex.test(email)) {
       setIsModalOpen(false);
       setIsConfirmationOpen(true);
-      setEmailError("Invalid email format");
-    }else {
+      setEmailError("");
+    } else {
       setEmailError("Invalid email format");
     }
   };
-  
 
   return (
     <DashboardWrapper>
@@ -58,10 +59,8 @@ const DashboardPage = () => {
       </div>
       <div className="title-filter-container">
         <h2 className="title">Board</h2>
-        {/*  */}
         <AddPeopleWrapper onClick={() => setIsModalOpen(true)}>
-          {/* <AiOutlineUserAdd/>Add People */}
-          <OutlineUserFriends style={{ strokeWidth: 40 }} /> Add People
+          <OutlineUserFriends /> Add People
         </AddPeopleWrapper>
 
         <select
@@ -89,6 +88,7 @@ const DashboardPage = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
+            {emailError && <p style={{ color: 'red' }}>{emailError}</p>}
             <div className="modal-buttons">
               <button className="cancel" onClick={() => setIsModalOpen(false)}>
                 Cancel
@@ -103,7 +103,7 @@ const DashboardPage = () => {
 
       {isConfirmationOpen && (
         <ModalWrapper>
-          <ModalContent>
+          <ModalContent className="confirmation-content">
             <h4>{email} is added to the board</h4>
             <button className="confirm" onClick={() => setIsConfirmationOpen(false)}>
               Okay, got it!
@@ -111,8 +111,6 @@ const DashboardPage = () => {
           </ModalContent>
         </ModalWrapper>
       )}
-
-
     </DashboardWrapper>
   );
 };
@@ -125,8 +123,8 @@ const AddPeopleWrapper = styled.div`
   align-items: center;
   color: gray;
   cursor: pointer;
-  font-size: 1rem;
-  margin-right: 900px; /* Adjust spacing as needed */
+  font-size: 1.2rem; /* Increase text size if needed */
+  margin-left: 20px; /* Adjust spacing to move it closer to the title */
 
   svg {
     margin-right: 0.5rem;
@@ -145,29 +143,30 @@ const ModalWrapper = styled.div`
   justify-content: center;
   background: rgba(0, 0, 0, 0.5);
   z-index: 1000;
-  padding: 20px;
+  padding: 40px; /* Increase padding for larger modals */
 `;
 
 const ModalContent = styled.div`
   background: white;
   padding: 2rem;
   border-radius: 10px;
-  width: 500px;
-  text-align: left;
+  width: 500px; /* Increase width for larger modal */
+  text-align: left; /* Default left alignment for input modal */
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 
   h4 {
     margin-top: 1rem;
     margin-bottom: 1rem;
+    font-size: 1.2rem; /* Increase font size */
   }
 
   input {
     width: 100%;
-    padding: 0.5rem;
+    padding: 1rem; /* Increase input padding */
     margin-bottom: 1rem;
-    font-size: 0.9rem;
+    font-size: 1.1rem; /* Increase input font size */
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 10px;
   }
 
   .modal-buttons {
@@ -177,24 +176,26 @@ const ModalContent = styled.div`
 
     .cancel {
       background: none;
-      border: 2px solid var(--red);
-      color: var(--red);
-      border-radius: 10px;
+      border: 2px solid red;
+      color: red;
+      border-radius: 20px;
       text-align: center;
       width: 48%;
-      padding: 0.5rem 1rem;
+      padding: 0.75rem 1rem; /* Increase button padding */
       cursor: pointer;
+      font-size: 1rem; /* Increase button font size */
     }
 
     .add {
       background: #17a2b8;
       border: none;
       color: white;
-      padding: 0.5rem 1rem;
+      padding: 0.75rem 1rem; /* Increase button padding */
       border-radius: 10px;
       cursor: pointer;
       text-align: center;
-      width: 48%
+      width: 48%;
+      font-size: 1rem; /* Increase button font size */
     }
   }
 
@@ -202,10 +203,19 @@ const ModalContent = styled.div`
     background: #17a2b8;
     border: none;
     color: white;
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1rem; /* Increase button padding */
     border-radius: 5px;
     cursor: pointer;
-    width: 70%;
+    width: 100%; /* Full width to center in confirmation modal */
     text-align: center;
+    font-size: 1rem; /* Increase button font size */
+  }
+
+  &.confirmation-content {
+    text-align: center; /* Center alignment for the confirmation modal */
+    h4 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
   }
 `;
