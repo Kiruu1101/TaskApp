@@ -165,6 +165,7 @@ const ModalContent = styled.div`
     width: 100%;
     padding: 0.5rem;
     margin-bottom: 1rem;
+    font-size: 0.9rem;
     border: 1px solid #ddd;
     border-radius: 5px;
   }
