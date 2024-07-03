@@ -57,7 +57,7 @@ export const AddPeopleWrapper = styled.div`
   color: gray;
   cursor: pointer;
   font-size: 1rem;
-  margin-right: 100rem; /* Adjust spacing as needed */
+  margin-right: 50rem; /* Adjust spacing as needed */
 
   svg {
     margin-right: 0.5rem;
@@ -67,6 +67,7 @@ export const AddPeopleWrapper = styled.div`
 
 export const ModalWrapper = styled.div`
   position: fixed;
+  height: 400px;
   top: 0;
   left: 0;
   right: 0;
