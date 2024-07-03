@@ -57,7 +57,7 @@ export const AddPeopleWrapper = styled.div`
   color: gray;
   cursor: pointer;
   font-size: 1rem;
-  margin-right: 52rem; /* Adjust spacing as needed */
+  margin-right: 60rem; /* Adjust spacing as needed */
   margin-left: 0.5rem;
 
   svg {
