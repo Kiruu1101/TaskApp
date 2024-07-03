@@ -88,7 +88,9 @@ const DashboardPage = () => {
               placeholder="Enter the Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              style={{ borderColor: emailError ? 'red' : '#ddd' }}
             />
+            {emailError && <ErrorMessage>{emailError}</ErrorMessage>}
             <div className="modal-buttons">
               <button className="cancel" onClick={() => setIsModalOpen(false)}>
                 Cancel
@@ -181,7 +183,8 @@ const ModalContent = styled.div`
       color: var(--red);
       border-radius: 10px;
       text-align: center;
-      width: 48%;
+
+      width: 49%;
       padding: 0.5rem 1rem;
       cursor: pointer;
     }
@@ -194,7 +197,7 @@ const ModalContent = styled.div`
       border-radius: 10px;
       cursor: pointer;
       text-align: center;
-      width: 48%
+      width: 49%
     }
   }
 
@@ -205,13 +208,21 @@ const ModalContent = styled.div`
     padding: 0.5rem 1rem;
     border-radius: 5px;
     cursor: pointer;
-    width: 70%;
+    width: Fixed (300px);
     text-align: center;
   }
   &.confirmation-content {
-  text-align: center;
-  h4{
-    margin-bottom: 1rem;
+    text-align: center;
+    h4{
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      margin-top: 2 rem;
+    }
   }
-  }
+`;
+const ErrorMessage = styled.p`
+  color: var(--red);
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
 `;
