@@ -247,7 +247,7 @@ const CreateEditTask = ({ onCloseModal, taskToEdit, emailsList }) => {
             ))}
           </div>
         )}
-
+{/*  */}
         {error.checklistEmpty && (
           <p className="error">{error.checklistEmpty}</p>
         )}
