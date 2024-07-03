@@ -229,10 +229,10 @@ const CreateEditTask = ({ onCloseModal, taskToEdit }) => {
           <AssigneeContainer>
             <div className="assignee-dropdown">
               <div
-                className="assignee-selected"
+                className="title-input"
                 onClick={() => setAssigneeListOpen(!assigneeListOpen)}
               >
-                {selectedAssignee ? selectedAssignee : "Select"}
+                {selectedAssignee ? selectedAssignee : "Add a assignee"}
               </div>
               {assigneeListOpen && (
                 <div className="assignee-list">
@@ -248,7 +248,6 @@ const CreateEditTask = ({ onCloseModal, taskToEdit }) => {
                       Assign
                     </AssignButton>
                   </div>
-                  {/* Add more items as needed */}
                 </div>
               )}
             </div>

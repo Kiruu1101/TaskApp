@@ -251,9 +251,11 @@ export const CreateEditContainerWrapper = styled.div`
   }
 `;
 export const AssignButton = styled.button`
-  background-color: #007bff;
-  color: #fff;
-  border: none;
+  background-color: white;
+  border: 1px;
+  border-radius: 10px;
+  border-color: gray;
+  align-item: right;
   padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
