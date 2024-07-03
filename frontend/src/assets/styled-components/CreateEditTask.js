@@ -152,6 +152,12 @@ export const CreateEditContainerWrapper = styled.div`
   }
 
   .assignee-box {
+    display: flex;
+    align-items: center;
+    margin-top: 1.5rem;
+  }
+
+  .assignee-input {
     border: 1px solid rgb(226, 226, 226);
     height: 40px;
     color: rgb(155, 149, 159);
@@ -165,10 +171,5 @@ export const CreateEditContainerWrapper = styled.div`
     &:focus {
       outline: rgb(226, 226, 226);
     }
-  }
-
-  .assignee-label {
-    font-size: 1rem;
-    font-weight: 500;
   }
 `;

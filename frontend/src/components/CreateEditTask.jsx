@@ -198,9 +198,10 @@ const CreateEditTask = ({ onCloseModal, taskToEdit }) => {
           </div>
           {error.priority && <p className="error">{error.priority}</p>}
         </div>
+
         <div className="assignee-box">
-          <p className="assignee-label">
-            Assign to:<span className="asteric">*</span>
+          <p className="select-label">
+            Assign to:
           </p>
           <input
             type="text"
