@@ -158,15 +158,16 @@ export const CreateEditContainerWrapper = styled.div`
     margin-top: 1.5rem;
   }
 
-  .assignee-input {
+  .assignee-dropdown {
     border: 1px solid rgb(226, 226, 226);
     height: 40px;
-    width: 565px;
+    width: 550px;
     color: rgb(155, 149, 159);
     font-size: 1rem;
     border-radius: 7px;
     padding: 1.2rem;
     margin-left: 10px;
+    background-color: white;
     &::placeholder {
       color: gainsboro;
     }

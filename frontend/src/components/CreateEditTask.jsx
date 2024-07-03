@@ -140,6 +140,10 @@ const CreateEditTask = ({ onCloseModal, taskToEdit, emailsList }) => {
       Task["due date"] = formatedDate(dueDate, "MM-DD-YYYY");
     }
 
+    if (assignee) {
+      Task.assignee = assignee;
+    }
+
     if (taskToEdit) {
       const taskId = taskToEdit.id;
       const fieldsToUpdate = Task;
@@ -210,14 +214,21 @@ const CreateEditTask = ({ onCloseModal, taskToEdit, emailsList }) => {
           <p className="select-label">
             Assign to 
           </p>
-          <input
-            type="text"
+          <select
             className="assignee-input"
             placeholder="Add a assignee"
             value={""} // Placeholder for assignee state management
-            onChange={(e) => {}} // Placeholder for assignee state management
-          />
+            onChange={(e) => setAssignee(e.target.value)} // Placeholder for assignee state management
+          >
+            <option value="">No assignee</option>
+            {emailsList.map((email)=> (
+              <option key={email} value={email}>
+                {email}
+              </option>
+            ))}
+          </select>
         </div>
+        
         <p className="checklist-detail">
           Checklist (<span>{completedChecklist}</span>/
           <span>{totalChecklist}</span>)<span className="asteric">*</span>
