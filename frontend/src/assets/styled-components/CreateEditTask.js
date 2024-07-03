@@ -269,11 +269,12 @@ export const AssignButton = styled.button`
   margin-left: 10px;
 
   &:hover {
-    background-color: #0056b3;
+    background-color: white;
   }
 `;
 export const AssigneeContainer = styled.div`
   position: relative;
   padding: 1rem;
-  width: 100%;
+  width: 565px;
+  margin-left: 10px;
 `;
