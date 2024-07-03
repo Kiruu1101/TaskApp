@@ -10,6 +10,7 @@ export const DashboardWrapper = styled.section`
     align-items: center;
     padding: 1rem;
     padding-left: 2rem;
+    padding-right: 0rem;
   }
   .dashboard-header {
     span {
@@ -59,7 +60,7 @@ export const AddPeopleWrapper = styled.div`
   cursor: pointer;
   font-size: 1rem;
   // margin-right: 50rem; /* Adjust spacing as needed */
-  padding-right: 60rem;
+  padding-left: 0.1rem;
 
   svg {
     margin-right: 0.5rem;
