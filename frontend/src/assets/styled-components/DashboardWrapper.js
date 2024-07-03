@@ -9,6 +9,7 @@ export const DashboardWrapper = styled.section`
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
+    padding-left: 2rem;
   }
   .dashboard-header {
     span {
@@ -53,7 +54,7 @@ export const DashboardWrapper = styled.section`
 
 export const AddPeopleWrapper = styled.div`
   display: flex;
-  align-items: center;
+  align-items: left;
   color: gray;
   cursor: pointer;
   font-size: 1rem;
