@@ -35,7 +35,7 @@ const CreateEditTask = ({ onCloseModal, taskToEdit, emailsList }) => {
   const [error, setError] = useState(initialErrorState);
   const [showCalendar, setShowCalendar] = useState(false);
   const [assignee, setAssignee] = useState("");
-  const [emailsList, setEmailsList] = useState([]);
+  // const [emailsList, setEmailsList] = useState([]);
 
   const addTaskContainerRef = useRef(null);
   const totalChecklist = checkLists.length;
@@ -52,7 +52,6 @@ const CreateEditTask = ({ onCloseModal, taskToEdit, emailsList }) => {
       const response = await fetch('/api/emails');
       if( response.ok) {
         const data = await response.json();
-        setEmailsList(data);
       } else{
         console.error('Failed to fetch emails');
       }
@@ -236,7 +235,7 @@ const CreateEditTask = ({ onCloseModal, taskToEdit, emailsList }) => {
           <select
             className="assignee-input"
             placeholder="Add a assignee"
-            value={""} // Placeholder for assignee state management
+            value={assignee} // Placeholder for assignee state management
             onChange={(e) => setAssignee(e.target.value)} // Placeholder for assignee state management
           >
             <option value="">Add a assignee</option>
