@@ -152,12 +152,23 @@ export const CreateEditContainerWrapper = styled.div`
   }
 
   .assignee-box {
-    display: flex;
-    align-items: center;
-    margin-top: 1.5rem;
+    border: 1px solid rgb(226, 226, 226);
+    height: 40px;
+    color: rgb(155, 149, 159);
+    font-size: 1.2rem;
+    border-radius: 7px;
+    padding: 1.2rem;
+    &::placeholder {
+      color: gainsboro;
+    }
+    &:active,
+    &:focus {
+      outline: rgb(226, 226, 226);
+    }
   }
 
   .assignee-label {
-    margin-right: 1rem;
+    font-size: 1rem;
+    font-weight: 500;
   }
 `;

@@ -253,7 +253,7 @@ const CreateEditTask = ({ onCloseModal, taskToEdit }) => {
         </div>
         <div className="cancel-save-btns">
           <button onClick={onCloseModal} className="cta-btn cancel-btn">
-            cancel
+            Cancel
           </button>
           <button className="cta-btn save-btn" onClick={onCreateEdit}>
             Save
