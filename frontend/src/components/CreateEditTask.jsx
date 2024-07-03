@@ -221,14 +221,14 @@ const CreateEditTask = ({ onCloseModal, taskToEdit, emailsList }) => {
             onChange={(e) => setAssignee(e.target.value)} // Placeholder for assignee state management
           >
             <option value="">No assignee</option>
-            {emailsList.map((email)=> (
+            {emailsList && emailsList.map((email)=> (
               <option key={email} value={email}>
                 {email}
               </option>
             ))}
           </select>
         </div>
-        
+
         <p className="checklist-detail">
           Checklist (<span>{completedChecklist}</span>/
           <span>{totalChecklist}</span>)<span className="asteric">*</span>
