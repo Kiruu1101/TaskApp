@@ -53,7 +53,7 @@ export const DashboardWrapper = styled.section`
 
 export const AddPeopleWrapper = styled.div`
   display: flex;
-  align-items: left;
+  align-items: center;
   color: gray;
   cursor: pointer;
   font-size: 1rem;
