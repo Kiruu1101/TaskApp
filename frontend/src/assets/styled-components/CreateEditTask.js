@@ -160,6 +160,7 @@ export const CreateEditContainerWrapper = styled.div`
   .assignee-input {
     border: 1px solid rgb(226, 226, 226);
     height: 40px;
+    width: Fixed (509px);
     color: rgb(155, 149, 159);
     font-size: 1.2rem;
     border-radius: 7px;

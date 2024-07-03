@@ -201,7 +201,7 @@ const CreateEditTask = ({ onCloseModal, taskToEdit }) => {
 
         <div className="assignee-box">
           <p className="select-label">
-            Assign to:
+            Assign to 
           </p>
           <input
             type="text"
