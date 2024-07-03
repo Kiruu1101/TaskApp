@@ -258,11 +258,12 @@ export const AssignButton = styled.button`
   background-color: white;
   border-width: 1px;
   border-radius: 10px;
+  font-color: gray;
   border-color: var(--gray);
   align-item: right;
   padding: 5px;
-  margin-right:0px;
-  margin-left 30px;
+  // margin-right:0px;
+  padding-left 30rem;
   border-radius: 5px;
   cursor: pointer;
   margin-left: 10px;
@@ -273,5 +274,6 @@ export const AssignButton = styled.button`
 `;
 export const AssigneeContainer = styled.div`
   position: relative;
+  padding: 1rem;
   width: 100%;
 `;
