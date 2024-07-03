@@ -10,6 +10,7 @@ import {
   useCreateTaskMutation,
   useEditTaskMutation,
 } from "../slices/taskApiSlice";
+
 const CreateEditTask = ({ onCloseModal, taskToEdit }) => {
   const initialErrorState = {
     title: "",
@@ -38,6 +39,7 @@ const CreateEditTask = ({ onCloseModal, taskToEdit }) => {
   const completedChecklist = completedTask(checkLists);
   const [editTask] = useEditTaskMutation();
   const [createTask] = useCreateTaskMutation();
+
   const toggleCalendarVisibility = () => {
     setShowCalendar(!showCalendar);
   };
@@ -195,6 +197,18 @@ const CreateEditTask = ({ onCloseModal, taskToEdit }) => {
             </div>
           </div>
           {error.priority && <p className="error">{error.priority}</p>}
+        </div>
+        <div className="assignee-box">
+          <p className="assignee-label">
+            Assign to:<span className="asteric">*</span>
+          </p>
+          <input
+            type="text"
+            className="assignee-input"
+            placeholder="Add an Assignee"
+            value={""} // Placeholder for assignee state management
+            onChange={(e) => {}} // Placeholder for assignee state management
+          />
         </div>
         <p className="checklist-detail">
           Checklist (<span>{completedChecklist}</span>/

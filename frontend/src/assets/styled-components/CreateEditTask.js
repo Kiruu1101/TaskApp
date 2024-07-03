@@ -150,4 +150,14 @@ export const CreateEditContainerWrapper = styled.div`
     align-items: center;
     gap: 1.2rem;
   }
+
+  .assignee-box {
+    display: flex;
+    align-items: center;
+    margin-top: 1.5rem;
+  }
+
+  .assignee-label {
+    margin-right: 1rem;
+  }
 `;
