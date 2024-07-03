@@ -161,13 +161,13 @@ export const CreateEditContainerWrapper = styled.div`
   .assignee-input {
     border: 1px solid rgb(226, 226, 226);
     height: 40px;
-    width: 550px;
+    width: 560px;
     color: rgb(155, 149, 159);
     font-size: 1rem;
     border-radius: 7px;
     padding: 1.2rem;
     margin-left: 10px;
-    background-color: white;
+    // background-color: white;
     &::placeholder {
       color: gainsboro;
     }

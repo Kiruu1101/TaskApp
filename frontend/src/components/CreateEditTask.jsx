@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { priorities } from "../utils/priority";
 import ChecklistTaskBox from "./ChecklistTaskBox";
 import { CreateEditContainerWrapper } from "../assets/styled-components/CreateEditTask";
@@ -35,13 +35,31 @@ const CreateEditTask = ({ onCloseModal, taskToEdit, emailsList }) => {
   const [error, setError] = useState(initialErrorState);
   const [showCalendar, setShowCalendar] = useState(false);
   const [assignee, setAssignee] = useState("");
-  const [showEmailDropdown, setShowEmailDropdown] = useState(false);
+  const [emailsList, setEmailsList] = useState([]);
 
   const addTaskContainerRef = useRef(null);
   const totalChecklist = checkLists.length;
   const completedChecklist = completedTask(checkLists);
   const [editTask] = useEditTaskMutation();
   const [createTask] = useCreateTaskMutation();
+
+  useEffect(() =>{
+    fetchEmails();
+  }, []);
+
+  const fetchEmails = async () => {
+    try{
+      const response = await fetch('/api/emails');
+      if( response.ok) {
+        const data = await response.json();
+        setEmailsList(data);
+      } else{
+        console.error('Failed to fetch emails');
+      }
+    } catch (error) {
+      console.error('Error fetching emails:',error);
+    }
+  };
 
   const toggleCalendarVisibility = () => {
     setShowCalendar(!showCalendar);
@@ -131,6 +149,7 @@ const CreateEditTask = ({ onCloseModal, taskToEdit, emailsList }) => {
     let Task = {
       title,
       priority: taskPriority,
+      assignee,
       checklist: checkLists.map((ele) => {
         const { _id, ...rest } = ele;
         return { ...rest };
