@@ -263,3 +263,7 @@ export const AssignButton = styled.button`
     background-color: #0056b3;
   }
 `;
+export const AssigneeContainer = styled.div`
+  position: relative;
+  width: 100%;
+`;

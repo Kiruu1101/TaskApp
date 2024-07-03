@@ -3,6 +3,7 @@ import { priorities } from "../utils/priority";
 import ChecklistTaskBox from "./ChecklistTaskBox";
 import { 
   CreateEditContainerWrapper,
+  AssigneeContainer,
   AssignButton,
 } from "../assets/styled-components/CreateEditTask"; // Adjust path as needed
 import DatePicker from "react-datepicker";
