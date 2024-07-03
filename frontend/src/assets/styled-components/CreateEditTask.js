@@ -189,20 +189,24 @@ export const CreateEditContainerWrapper = styled.div`
   }
 
   .assign-button {
-    padding: 5px 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: transparent;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    background-color: white;
+  border-width: 1px;
+  border-radius: 10px;
+  border-color: gray;
+  align-item: right;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
 
-    &:hover {
-      background-color: #f0f0f0;
-    }
+  &:hover {
+    background-color: #0056b3;
+  }
   }
 
-  .assignee-input {
+  .assignee-list {
     position: absolute;
+    padding : 1rem;
     top: 100%;
     left: 0;
     width: 100%;
@@ -231,7 +235,7 @@ export const CreateEditContainerWrapper = styled.div`
     }
   }
 
-  .assignee-list {
+  .assignee-input {
     border: 1px solid rgb(226, 226, 226);
     height: 40px;
     width: 560px;
