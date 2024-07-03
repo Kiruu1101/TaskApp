@@ -3,8 +3,8 @@ import { DashboardWrapper } from "../assets/styled-components/DashboardWrapper";
 import KanbanBoard from "../components/KanbanBoard";
 import { formatedDate } from "../utils/calculate";
 import { useSelector } from "react-redux";
-import { useLocation, useNavigate, useOutletContext } from "react-router-dom";
-import { AiOutlineUserAdd } from "react-icons/ai";
+import { useNavigate, useOutletContext } from "react-router-dom";
+// import { AiOutlineUserAdd } from "react-icons/ai";
 import { FaUserFriends } from 'react-icons/fa';
 
 import styled from "styled-components";
@@ -39,7 +39,9 @@ const DashboardPage = () => {
 
   const handleAddEmail = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (email && emailRegex.test(email)) {
+    if(!email) {
+      setEmailError("Email id is required");
+    } else if (email && emailRegex.test(email)) {
       setIsModalOpen(false);
       setIsConfirmationOpen(true);
       setEmailError("");
@@ -53,7 +55,7 @@ const DashboardPage = () => {
     <DashboardWrapper>
       <div className="dashboard-header">
         <h3 className="greet-user">
-          <span>Welcome! </span> <span>{`${user.name}`}</span>
+          <span>Welcome!</span>&nbsp<span>{`${user.name}`}</span>
         </h3>
         <span>{formatedDate(Date.now(), "D MMM,YYYY")}</span>
       </div>
@@ -89,7 +91,7 @@ const DashboardPage = () => {
               placeholder="Enter the Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              style={{ borderColor: emailError ? 'red' : '#ddd' }}
+              style={{ borderColor: emailError ? 'var(--red)' : '#ddd' }}
             />
             {emailError && <ErrorMessage>{emailError}</ErrorMessage>}
             <div className="modal-buttons">
@@ -206,16 +208,18 @@ const ModalContent = styled.div`
     background: #17a2b8;
     border: none;
     color: white;
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1rem;
     border-radius: 5px;
     cursor: pointer;
-    width: Fixed (300px);
+    width: 70%;
     text-align: center;
+    margin: 0 auto;
+    display: block;
   }
   &.confirmation-content {
     text-align: center;
     h4{
-      font-size: 1.2rem;
+      // font-size: 1.2rem;
       margin-bottom: 1rem;
       margin-top: 2 rem;
     }
@@ -223,7 +227,7 @@ const ModalContent = styled.div`
 `;
 const ErrorMessage = styled.p`
   color: var(--red);
-  margin-top: 0.5rem;
+  // margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   font-size: 0.9rem;
 `;
