@@ -201,7 +201,7 @@ export const CreateEditContainerWrapper = styled.div`
     }
   }
 
-  .assignee-list {
+  .assignee-input {
     position: absolute;
     top: 100%;
     left: 0;
@@ -231,7 +231,7 @@ export const CreateEditContainerWrapper = styled.div`
     }
   }
 
-  .assignee-input {
+  .assignee-list {
     border: 1px solid rgb(226, 226, 226);
     height: 40px;
     width: 560px;
