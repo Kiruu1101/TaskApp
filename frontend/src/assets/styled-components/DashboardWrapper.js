@@ -52,12 +52,12 @@ export const DashboardWrapper = styled.section`
 // Styled components for "Add People" text and pop-ups
 
 export const AddPeopleWrapper = styled.div`
-  display: fixed;
+  display: flex;
   align-items: left;
   color: gray;
   cursor: pointer;
   font-size: 1rem;
-  margin-right: 56rem; /* Adjust spacing as needed */
+  margin-right: 57rem; /* Adjust spacing as needed */
   margin-left: 0.5rem;
 
   svg {
