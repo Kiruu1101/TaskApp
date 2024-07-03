@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
 import { Tooltip } from "react-tooltip";
@@ -19,6 +19,7 @@ import {
 } from "../slices/taskApiSlice";
 import PriorityTag from "./PriorityTag";
 import DateTag from "./DateTag";
+
 const TaskCard = ({
   ele,
   title,
@@ -34,9 +35,12 @@ const TaskCard = ({
   const [editChecklistByTaskAndChecklistId, { isLoading: mutatingChecklist }] =
     useEditChecklistByTaskAndChecklistIdMutation();
 
+  const [assignee, setAssignee] = useState("");
+
   const onConfirmDelete = async () => {
     await deleteTask(ele.id).unwrap();
   };
+
   const onMutateTaskStatus = async (newStatus) => {
     const fieldsToUpdate = { status: newStatus };
     const taskId = ele.id;
@@ -76,9 +80,11 @@ const TaskCard = ({
       toast.error(error?.data?.message);
     }
   };
+
   const returnShareLink = (id) => {
     return `${window.location.href.split("/home")[0]}/share/${id}`;
   };
+
   return (
     <TaskCardWrapper $title={title}>
       <div className="priority-menu">
@@ -124,6 +130,17 @@ const TaskCard = ({
         {ele.title}
       </p>
       <Tooltip id="title" />
+      <div className="assignee-input">
+        <label htmlFor="assignee">Assign to:</label>
+        <input 
+          type="text"
+          id="assignee"
+          value={assignee}
+          onChange={(e) => setAssignee(e.target.value)}
+          placeholder="Add an Assignee"
+          style={{ width: "100%"}}
+        />
+      </div>
       <div className="checklist-toggle-container">
         <p className="checklist-head">
           <span>Checklist</span>{" "}
