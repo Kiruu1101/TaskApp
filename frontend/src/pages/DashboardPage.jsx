@@ -24,6 +24,7 @@ const DashboardPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
   const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState("");
 
   useEffect(() => {
     if (!daysFilter) setDayFilter("week");
@@ -41,7 +42,7 @@ const DashboardPage = () => {
     if (email && emailRegex.test(email)) {
       setIsModalOpen(false);
       setIsConfirmationOpen(true);
-      setEmailError("Invalid email format");
+      setEmailError("");
     }else {
       setEmailError("Invalid email format");
     }
