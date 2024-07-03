@@ -206,7 +206,7 @@ const CreateEditTask = ({ onCloseModal, taskToEdit }) => {
           <input
             type="text"
             className="assignee-input"
-            placeholder="Add an Assignee"
+            placeholder="Add a assignee"
             value={""} // Placeholder for assignee state management
             onChange={(e) => {}} // Placeholder for assignee state management
           />
