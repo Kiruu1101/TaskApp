@@ -25,34 +25,6 @@ export const TaskCardWrapper = styled.aside`
     margin-bottom: 1.8rem;
     width: 60%;
   }
-
-  .assignee-input {
-    display: flex;
-    align-items: left;
-    margin-top: 1rem;
-
-    label {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-right: 1rem;
-    }
-
-    input {
-      flex: 1;
-      height: 2rem;
-      padding: 0.5rem;
-      font-size: 1rem;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      outline: none;
-
-      &:focus {
-        border-color: #007bff;
-        box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.25);
-      }
-    }
-  }
-
   .checklist-toggle-container {
     display: flex;
     font-family: "Inter";
