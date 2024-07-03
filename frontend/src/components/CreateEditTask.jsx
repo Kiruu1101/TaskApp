@@ -227,9 +227,8 @@ const CreateEditTask = ({ onCloseModal, taskToEdit }) => {
         <div className="assignee-box">
           <p className="select-label">Assign to</p>
           <AssigneeContainer>
-            <div className="assignee-list">
+            <div className="assignee-input">
               <div
-                className="assignee-input"
                 onClick={() => setAssigneeListOpen(!assigneeListOpen)}
               >
                 {selectedAssignee ? selectedAssignee : "Add a assignee"}
