@@ -55,7 +55,7 @@ const DashboardPage = () => {
     <DashboardWrapper>
       <div className="dashboard-header">
         <h3 className="greet-user">
-          <span>Welcome! </span> <span>{`${user.name}`}</span>
+          <span>Welcome!</span><span>&nbsp</span> <span>{`${user.name}`}</span>
         </h3>
         <span>{formatedDate(Date.now(), "D MMM,YYYY")}</span>
       </div>
