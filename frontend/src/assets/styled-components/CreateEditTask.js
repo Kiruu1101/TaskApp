@@ -252,11 +252,11 @@ export const CreateEditContainerWrapper = styled.div`
 `;
 export const AssignButton = styled.button`
   background-color: white;
-  border: 1px;
+  border-width: 1px;
   border-radius: 10px;
   border-color: gray;
   align-item: right;
-  padding: 5px 10px;
+  padding: 5px;
   border-radius: 5px;
   cursor: pointer;
   margin-left: 10px;
