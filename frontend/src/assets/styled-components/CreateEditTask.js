@@ -5,7 +5,6 @@ export const CreateEditContainerWrapper = styled.div`
   justify-content: space-between;
   width: 650px;
   height: 500px;
-
   .title-box {
     display: flex;
     justify-content: center;
@@ -154,7 +153,8 @@ export const CreateEditContainerWrapper = styled.div`
   }
 
   .assignee-box {
-    position: relative;
+    display: flex;
+    align-items: center;
     margin-top: 1.5rem;
   }
 
@@ -174,35 +174,5 @@ export const CreateEditContainerWrapper = styled.div`
     &:focus {
       outline: rgb(226, 226, 226);
     }
-  }
-
-  .emails-dropdown {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    max-height: 150px;
-    overflow-y: auto;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #fff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    margin-top: 5px;
-  }
-
-  .emails-dropdown li {
-    padding: 10px;
-    cursor: pointer;
-    list-style-type: none;
-    transition: background-color 0.3s;
-  }
-
-  .emails-dropdown li:hover {
-    background-color: #f1f1f1;
-  }
-
-  .emails-dropdown li:active {
-    background-color: #e1e1e1;
   }
 `;

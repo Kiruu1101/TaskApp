@@ -91,15 +91,6 @@ const CreateEditTask = ({ onCloseModal, taskToEdit, emailsList }) => {
     }, 0);
   };
 
-  const handleAssigneeClick = () => {
-    setShowEmailDropdown(!showEmailDropdown);
-  };
-
-  const handleSelectEmail = (selectedEmail) => {
-    setAssignee(selectedEmail);
-    setShowEmailDropdown(false);
-  };
-
   const onCreateEdit = async () => {
     if (!title) {
       setError({ ...initialErrorState, title: "Title is required" });
@@ -134,27 +125,39 @@ const CreateEditTask = ({ onCloseModal, taskToEdit, emailsList }) => {
     }
 
     // 
-    const newTask = {
+
+    //
+
+    let Task = {
       title,
       priority: taskPriority,
-      "due date": dueDate,
-      checklist: checkLists,
-      assignee, 
+      checklist: checkLists.map((ele) => {
+        const { _id, ...rest } = ele;
+        return { ...rest };
+      }),
     };
-    // 
+    if (dueDate) {
+      Task["due date"] = formatedDate(dueDate, "MM-DD-YYYY");
+    }
 
-    try {
-      if (taskToEdit) {
-        const taskId = taskToEdit.id;
-        await editTask({ fieldsToUpdate: newTask, taskId }).unwrap();
+    if (taskToEdit) {
+      const taskId = taskToEdit.id;
+      const fieldsToUpdate = Task;
+      try {
+        await editTask({ fieldsToUpdate, taskId }).unwrap();
         toast.success("Task edited");
-      } else {
-        await createTask(newTask).unwrap();
-        toast.success("New task created");
+        onCloseModal();
+      } catch (error) {
+        toast.error(error?.data?.message);
       }
-      onCloseModal();
-    } catch (error) {
-      toast.error(error?.data?.message);
+    } else {
+      try {
+        await createTask(Task).unwrap();
+        toast.success("New task created");
+        onCloseModal();
+      } catch (error) {
+        toast.error(error?.data?.message);
+      }
     }
   };
 
@@ -207,26 +210,13 @@ const CreateEditTask = ({ onCloseModal, taskToEdit, emailsList }) => {
           <p className="select-label">
             Assign to 
           </p>
-          <div style={{ position: "relative"}}>
           <input
             type="text"
             className="assignee-input"
             placeholder="Add a assignee"
-            value={assignee}
-            onChange={(e) => setAssignee(e.target.value)}
-            onClick={{handleAssigneeClick}}
+            value={""} // Placeholder for assignee state management
+            onChange={(e) => {}} // Placeholder for assignee state management
           />
-          {showEmailDropdown && (
-            <ul className="emails-dropdown">
-              {emailsList.map((email, index) => (
-                <li key={index} onClick={() =>handleSelectEmail(email)}>
-                  {email}
-                </li>
-              ))}
-
-            </ul>
-          )}
-        </div>
         </div>
         <p className="checklist-detail">
           Checklist (<span>{completedChecklist}</span>/
@@ -247,6 +237,7 @@ const CreateEditTask = ({ onCloseModal, taskToEdit, emailsList }) => {
             ))}
           </div>
         )}
+
         {error.checklistEmpty && (
           <p className="error">{error.checklistEmpty}</p>
         )}
