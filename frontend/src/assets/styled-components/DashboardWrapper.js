@@ -137,7 +137,7 @@ export const ModalContent = styled.div`
     border: none;
     color: white;
     font-weight: 600;
-    padding: 5rem 1rem;
+    padding: 0.75rem 1rem;
     border-radius: 10px;
     cursor: pointer;
     width: 60%;
@@ -147,6 +147,7 @@ export const ModalContent = styled.div`
   }
   &.confirmation-content {
     text-align: center;
+    padding: 2rem;
     h4{
       // font-size: 1.2rem;
       margin-bottom: 1rem;

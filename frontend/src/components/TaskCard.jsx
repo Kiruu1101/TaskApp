@@ -1,5 +1,5 @@
-import React from "react";
-import { IoIosArrowDown } from "react-icons/io";
+import React, { useEffect, useState } from "react";
+import { IoIosArrowDown} from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
 import { Tooltip } from "react-tooltip";
 import { CopyToClipboard } from "react-copy-to-clipboard";
@@ -19,6 +19,7 @@ import {
 } from "../slices/taskApiSlice";
 import PriorityTag from "./PriorityTag";
 import DateTag from "./DateTag";
+
 const TaskCard = ({
   ele,
   title,
@@ -34,9 +35,33 @@ const TaskCard = ({
   const [editChecklistByTaskAndChecklistId, { isLoading: mutatingChecklist }] =
     useEditChecklistByTaskAndChecklistIdMutation();
 
+  const [emails, setEmails] = useState([]);
+  const [selectedAssignee, setSelectedAssignee] = useState("");
+
+  useEffect(() => {
+    fetchEmails();
+  }, []);
+
+  const fetchEmails = async () => {
+    try {
+      // Replace with your backend API endpoint to fetch emails
+      const response = await fetch('/api/emails');
+      if (response.ok) {
+        const data = await response.json();
+        setEmails(data);
+      } else {
+        throw new Error('Failed to fetch emails');
+      }
+    } catch (error) {
+      console.error('Error fetching emails:', error);
+      // Handle error, show toast or fallback mechanism
+    }
+  };
+
   const onConfirmDelete = async () => {
     await deleteTask(ele.id).unwrap();
   };
+
   const onMutateTaskStatus = async (newStatus) => {
     const fieldsToUpdate = { status: newStatus };
     const taskId = ele.id;
@@ -76,9 +101,19 @@ const TaskCard = ({
       toast.error(error?.data?.message);
     }
   };
+
   const returnShareLink = (id) => {
     return `${window.location.href.split("/home")[0]}/share/${id}`;
   };
+
+  const handleAssigneeChange = (event) => {
+    setSelectedAssignee(event.target.value);
+  };
+
+  const handleAssigneeTask = () => {
+    console.log('Assign task to:', selectedAssignee);
+  }
+
   return (
     <TaskCardWrapper $title={title}>
       <div className="priority-menu">
@@ -155,17 +190,39 @@ const TaskCard = ({
         </div>
       )}
 
-      <div
-        className={`mutate-status-container ${
-          ele["due date"] ? "" : "justify-end"
-        }`}
-      >
+<div className="mutate-status-container">
         {ele["due date"] && (
           <DateTag date={ele["due date"]} status={ele.status} />
         )}
+        <div className="assignee-container">
+          <label htmlFor="assignee">Assign to:</label>
+          <select
+            id="assignee"
+            name="assignee"
+            onChange={handleAssigneeChange}
+            value={selectedAssignee}
+          >
+            <option value="">Select Assignee</option>
+            {emails.map((email) => (
+              <option key={email._id} value={email.email}>
+                {email.email}
+              </option>
+            ))}
+          </select>
+          <button
+            className="assign-btn"
+            onClick={handleAssignTask}
+            disabled={!selectedAssignee}
+          >
+            Assign
+          </button>
+        </div>
+      </div>
+
+      <div className="mutate-status-container">
         <p className="mutate-btns-container">
           {Object.keys(taskStatus).map((status) => {
-            if (status === title?.toUpperCase()) return;
+            if (status === title?.toUpperCase()) return null;
             return (
               <button
                 className="mutate-status-btn"
@@ -182,5 +239,4 @@ const TaskCard = ({
     </TaskCardWrapper>
   );
 };
-
 export default TaskCard;

@@ -9,10 +9,15 @@ import mongoose from "mongoose";
 import express from "express";
 import taskRouter from "./routers/taskroutes.js";
 import userRouter from "./routers/userroutes.js";
+import emailRoutes from "./routers/emails.js";
 import { errorHandlerMiddleware } from "./middlewares/ErrorHandlerMiddleware.js";
 import cookieParser from "cookie-parser";
 const app = express();
 const PORT = process.env.PORT || 8000;
+
+
+
+app.use('/api', emailRoutes);
 
 app.use(cookieParser());
 app.use(express.json());
@@ -24,6 +29,8 @@ app.get("/api/health", (req, res) => {
 });
 app.use("/api/tasks", taskRouter);
 app.use("/api/users", userRouter);
+app.use('/api/emails', emailRoutes);
+
 
 const __dirname = path.resolve();
 app.use("/uploads", express.static("/var/data/uploads"));
