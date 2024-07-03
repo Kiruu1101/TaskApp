@@ -39,7 +39,7 @@ export const StyledButton = styled.button`
   font-weight: 500;
   font-size: 1rem;
   transition: all 0.2s;
-  color: ${(props) => (props.$deleteBtn ? "red" : "")};
+  color: ${(props) => (props.$deleteBtn ? "var(--red)" : "")};
   display: flex;
   align-items: center;
   gap: 1.6rem;

@@ -47,7 +47,7 @@ export const FormWrapper = styled.section`
     color: white;
     border: transparent;
     transition: all 0.3s;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 1px;
 
     margin-top: 3rem;

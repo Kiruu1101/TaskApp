@@ -18,7 +18,7 @@ export const CreateEditContainerWrapper = styled.div`
     font-weight: 500;
   }
   .asteric {
-    color: red;
+    color: var(--red);
     letter-spacing: 1.3px;
   }
   .title-input {
