@@ -8,9 +8,7 @@ export const DashboardWrapper = styled.section`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
-    padding-left: 2rem;
-    padding-right: 0rem;
+    padding: 1rem 2rem;
   }
   .dashboard-header {
     span {
@@ -54,13 +52,12 @@ export const DashboardWrapper = styled.section`
 // Styled components for "Add People" text and pop-ups
 
 export const AddPeopleWrapper = styled.div`
-  display: flex;
+  display: fixed;
   align-items: left;
   color: gray;
   cursor: pointer;
   font-size: 1rem;
-  // margin-right: 50rem; /* Adjust spacing as needed */
-  padding-left: 0.1rem;
+  margin-right: 300rem; /* Adjust spacing as needed */
 
   svg {
     margin-right: 0.5rem;
