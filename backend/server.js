@@ -10,7 +10,7 @@ import express from "express";
 
 import taskRouter from "./routers/taskroutes.js";
 import userRouter from "./routers/userroutes.js";
-import emailRouter from "./routers/emailRoutes.js"
+// import emailRouter from "./routers/emailRoutes.js"
 
 import { errorHandlerMiddleware } from "./middlewares/ErrorHandlerMiddleware.js";
 import cookieParser from "cookie-parser";
@@ -28,7 +28,7 @@ app.get("/api/health", (req, res) => {
 });
 app.use("/api/tasks", taskRouter);
 app.use("/api/users", userRouter);
-app.use("/api/emails", emailRouter);
+// app.use("/api/emails", emailRouter);
 
 const __dirname = path.resolve();
 app.use("/uploads", express.static("/var/data/uploads"));

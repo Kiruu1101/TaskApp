@@ -34,23 +34,23 @@ const DashboardPage = () => {
   const [emailError, setEmailError] = useState("");
   const [emailsList, setEmailsList] = useState([]);
 
-  useEffect(() => {
-    const fetchEmails = async () => {
-      try {
-        const response = await fetch('/api/emails'); // Adjust the API endpoint as necessary
-        if (response.ok) {
-          const data = await response.json();
-          setEmailsList(data); // Update the emailsList state with fetched data
-        } else {
-          console.error('Failed to fetch emails');
-        }
-      } catch (error) {
-        console.error('Error fetching emails:', error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchEmails = async () => {
+  //     try {
+  //       const response = await fetch('/api/emails'); // Adjust the API endpoint as necessary
+  //       if (response.ok) {
+  //         const data = await response.json();
+  //         setEmailsList(data); // Update the emailsList state with fetched data
+  //       } else {
+  //         console.error('Failed to fetch emails');
+  //       }
+  //     } catch (error) {
+  //       console.error('Error fetching emails:', error);
+  //     }
+  //   };
 
-    fetchEmails();
-  }, []);
+  //   fetchEmails();
+  // }, []);
 
   useEffect(() => {
     if (!daysFilter) setDayFilter("week");

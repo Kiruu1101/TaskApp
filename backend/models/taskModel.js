@@ -21,11 +21,6 @@ const TaskSchema = new mongoose.Schema(
       type: mongoose.Types.ObjectId,
       ref: "User",
     },
-
-    assignee: {
-      type: String,
-      default: ''
-    },
   },
   { timestamps: true }
 );
