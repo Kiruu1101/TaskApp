@@ -227,7 +227,7 @@ const CreateEditTask = ({ onCloseModal, taskToEdit }) => {
         <div className="assignee-box">
           <p className="select-label">Assign to</p>
           <AssigneeContainer>
-            <div className="assignee-item">
+            <div className="assignee-input">
               <div
                 className="title-input"
                 onClick={() => setAssigneeListOpen(!assigneeListOpen)}
@@ -238,13 +238,19 @@ const CreateEditTask = ({ onCloseModal, taskToEdit }) => {
                 <div className="assignee-list">
                   <div className="assignee-item">
                     <span>john.doe@example.com</span>
-                    <AssignButton onClick={() => assignEmail("john.doe@example.com")}>
+                    <AssignButton onClick={() => assignEmail("john.doe@yahoo.com")}>
                       Assign
                     </AssignButton>
                   </div>
                   <div className="assignee-item">
                     <span>jane.smith@example.com</span>
-                    <AssignButton onClick={() => assignEmail("jane.smith@example.com")}>
+                    <AssignButton onClick={() => assignEmail("jane.smith@gmail.com")}>
+                      Assign
+                    </AssignButton>
+                  </div>
+                  <div className="assignee-item">
+                    <span>jane.smith@example.com</span>
+                    <AssignButton onClick={() => assignEmail("user@gmail.com")}>
                       Assign
                     </AssignButton>
                   </div>
