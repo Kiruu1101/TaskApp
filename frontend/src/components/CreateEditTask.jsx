@@ -11,7 +11,7 @@ import {
   useEditTaskMutation,
 } from "../slices/taskApiSlice";
 
-const CreateEditTask = ({ onCloseModal, taskToEdit }) => {
+const CreateEditTask = ({ onCloseModal, taskToEdit, emailsList }) => {
   const initialErrorState = {
     title: "",
     priority: "",
@@ -34,6 +34,9 @@ const CreateEditTask = ({ onCloseModal, taskToEdit }) => {
   });
   const [error, setError] = useState(initialErrorState);
   const [showCalendar, setShowCalendar] = useState(false);
+  const [assignee, setAssignee] = useState("");
+  const [showEmailDropdown, setShowEmailDropdown] = useState(false);
+
   const addTaskContainerRef = useRef(null);
   const totalChecklist = checkLists.length;
   const completedChecklist = completedTask(checkLists);
@@ -88,6 +91,15 @@ const CreateEditTask = ({ onCloseModal, taskToEdit }) => {
     }, 0);
   };
 
+  const handleAssigneeClick = () => {
+    setShowEmailDropdown(!showEmailDropdown);
+  };
+
+  const handleSelectEmail = (selectedEmail) => {
+    setAssignee(selectedEmail);
+    setShowEmailDropdown(false);
+  };
+
   const onCreateEdit = async () => {
     if (!title) {
       setError({ ...initialErrorState, title: "Title is required" });
@@ -121,36 +133,28 @@ const CreateEditTask = ({ onCloseModal, taskToEdit }) => {
       setError(initialErrorState);
     }
 
-    let Task = {
+    // 
+    const newTask = {
       title,
       priority: taskPriority,
-      checklist: checkLists.map((ele) => {
-        const { _id, ...rest } = ele;
-        return { ...rest };
-      }),
+      "due date": dueDate,
+      checklist: checkLists,
+      assignee, 
     };
-    if (dueDate) {
-      Task["due date"] = formatedDate(dueDate, "MM-DD-YYYY");
-    }
+    // 
 
-    if (taskToEdit) {
-      const taskId = taskToEdit.id;
-      const fieldsToUpdate = Task;
-      try {
-        await editTask({ fieldsToUpdate, taskId }).unwrap();
+    try {
+      if (taskToEdit) {
+        const taskId = taskToEdit.id;
+        await editTask({ fieldsToUpdate: newTask, taskId }).unwrap();
         toast.success("Task edited");
-        onCloseModal();
-      } catch (error) {
-        toast.error(error?.data?.message);
-      }
-    } else {
-      try {
-        await createTask(Task).unwrap();
+      } else {
+        await createTask(newTask).unwrap();
         toast.success("New task created");
-        onCloseModal();
-      } catch (error) {
-        toast.error(error?.data?.message);
       }
+      onCloseModal();
+    } catch (error) {
+      toast.error(error?.data?.message);
     }
   };
 
@@ -203,13 +207,26 @@ const CreateEditTask = ({ onCloseModal, taskToEdit }) => {
           <p className="select-label">
             Assign to 
           </p>
+          <div style={{ position: "relative"}}>
           <input
             type="text"
             className="assignee-input"
             placeholder="Add a assignee"
-            value={""} // Placeholder for assignee state management
-            onChange={(e) => {}} // Placeholder for assignee state management
+            value={assignee}
+            onChange={(e) => setAssignee(e.target.value)}
+            onClick={{handleAssigneeClick}}
           />
+          {showEmailDropdown && (
+            <ul className="emails-dropdown">
+              {emailsList.map((email, index) => (
+                <li key={index} onClick={() =>handleSelectEmail(email)}>
+                  {email}
+                </li>
+              ))}
+
+            </ul>
+          )}
+        </div>
         </div>
         <p className="checklist-detail">
           Checklist (<span>{completedChecklist}</span>/

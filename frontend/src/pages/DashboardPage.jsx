@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { DashboardWrapper, AddPeopleWrapper, ModalWrapper, ModalContent, ErrorMessage } from "../assets/styled-components/DashboardWrapper";
+import { 
+  DashboardWrapper, 
+  AddPeopleWrapper, 
+  ModalWrapper, 
+  ModalContent, 
+  ErrorMessage 
+} from "../assets/styled-components/DashboardWrapper";
 import KanbanBoard from "../components/KanbanBoard";
+import CreateEditTask from "../components/CreateEditTask";
 import { formatedDate } from "../utils/calculate";
 import { useSelector } from "react-redux";
 import { useNavigate, useOutletContext } from "react-router-dom";
@@ -25,6 +32,7 @@ const DashboardPage = () => {
   const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
+  const [emailsList, setEmailsList] = useState([]);
 
   useEffect(() => {
     if (!daysFilter) setDayFilter("week");
@@ -42,6 +50,7 @@ const DashboardPage = () => {
     if(!email) {
       setEmailError("Email id is required");
     } else if (email && emailRegex.test(email)) {
+      setEmailsList(prevEmails => [...prevEmails, email]);
       setIsModalOpen(false);
       setIsConfirmationOpen(true);
       setEmailError("");
@@ -116,6 +125,8 @@ const DashboardPage = () => {
           </ModalContent>
         </ModalWrapper>
       )}
+
+      <CreateEditTask emailsList={emailsList} />
 
 
     </DashboardWrapper>
