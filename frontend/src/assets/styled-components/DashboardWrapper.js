@@ -8,7 +8,7 @@ export const DashboardWrapper = styled.section`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 1rem;
   }
   .dashboard-header {
     span {
@@ -58,7 +58,6 @@ export const AddPeopleWrapper = styled.div`
   cursor: pointer;
   font-size: 1rem;
   // margin-right: 50rem; /* Adjust spacing as needed */
-  margin-left:0.1px;
 
   svg {
     margin-right: 0.5rem;
@@ -77,7 +76,7 @@ export const ModalWrapper = styled.div`
   justify-content: center;
   background: rgba(0, 0, 0, 0.5);
   z-index: 1000;
-  padding: 50px;
+  padding: 20px;
 `;
 
 export const ModalContent = styled.div`
@@ -148,7 +147,7 @@ export const ModalContent = styled.div`
   }
   &.confirmation-content {
     text-align: center;
-    padding: 20rem;
+    padding: 2rem;
     h4{
       // font-size: 1.2rem;
       margin-bottom: 1rem;
