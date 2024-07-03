@@ -139,6 +139,7 @@ export const CreateEditContainerWrapper = styled.div`
     border: 1.3px solid var(--red);
     background-color: var(--white);
     color: var(--red);
+    font-weight: 600;
   }
   .save-btn {
     border: 1.3px solid var(--primary-500);
@@ -160,7 +161,7 @@ export const CreateEditContainerWrapper = styled.div`
   .assignee-input {
     border: 1px solid rgb(226, 226, 226);
     height: 40px;
-    width: 550px;
+    width: 560px;
     color: rgb(155, 149, 159);
     font-size: 1rem;
     border-radius: 7px;
