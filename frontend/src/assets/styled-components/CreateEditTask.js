@@ -258,12 +258,12 @@ export const AssignButton = styled.button`
   background-color: white;
   border-width: 1px;
   border-radius: 10px;
-  font-color: gray;
+  color: gray;
   border-color: var(--gray);
-  align-item: right;
+  align-item: center;
+  font-size: 0.9rem;
   padding: 5px;
   // margin-right:0px;
-  padding-left 30rem;
   border-radius: 5px;
   cursor: pointer;
   margin-left: 10px;
