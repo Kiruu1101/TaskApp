@@ -124,5 +124,4 @@ const DashboardPage = () => {
 
 export default DashboardPage;
 
-// Styled components for "Add People" text and pop-ups
 

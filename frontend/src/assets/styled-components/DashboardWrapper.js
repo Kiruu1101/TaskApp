@@ -48,7 +48,9 @@ export const DashboardWrapper = styled.section`
     overflow-y: hidden;
   }
 `;
-// 
+
+// Styled components for "Add People" text and pop-ups
+
 export const AddPeopleWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -106,7 +108,8 @@ export const ModalContent = styled.div`
 
     .cancel {
       background: none;
-      border: 2px solid var(--red);
+      border: 1px solid var(--red);
+      font-weight: 600;
       color: var(--red);
       border-radius: 10px;
       text-align: center;
@@ -120,6 +123,7 @@ export const ModalContent = styled.div`
       background: #17a2b8;
       border: none;
       color: white;
+      font-weight: 600;
       padding: 0.5rem 1rem;
       border-radius: 10px;
       cursor: pointer;
@@ -133,7 +137,7 @@ export const ModalContent = styled.div`
     border: none;
     color: white;
     font-weight: 600;
-    padding: 0.75rem 1rem;
+    padding: 5rem 1rem;
     border-radius: 10px;
     cursor: pointer;
     width: 60%;
@@ -152,7 +156,7 @@ export const ModalContent = styled.div`
 `;
 export const ErrorMessage = styled.p`
   color: var(--red);
-  margin-top: 0.1rem;
+  margin-top: 0rem;
   margin-bottom: 0.5rem;
   font-size: 0.9rem;
 `;
