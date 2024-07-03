@@ -220,7 +220,7 @@ const CreateEditTask = ({ onCloseModal, taskToEdit, emailsList }) => {
             value={""} // Placeholder for assignee state management
             onChange={(e) => setAssignee(e.target.value)} // Placeholder for assignee state management
           >
-            <option value="">No assignee</option>
+            <option value="">Add a assignee</option>
             {emailsList && emailsList.map((email)=> (
               <option key={email} value={email}>
                 {email}

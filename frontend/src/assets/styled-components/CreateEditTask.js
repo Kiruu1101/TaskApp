@@ -158,7 +158,7 @@ export const CreateEditContainerWrapper = styled.div`
     margin-top: 1.5rem;
   }
 
-  .assignee-dropdown {
+  .assignee-input {
     border: 1px solid rgb(226, 226, 226);
     height: 40px;
     width: 550px;
