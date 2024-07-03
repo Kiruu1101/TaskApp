@@ -96,7 +96,7 @@ export const ModalContent = styled.div`
     width: 100%;
     padding: 0.5rem;
     margin-bottom: 1rem;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     border: 1px solid #ddd;
     border-radius: 10px;
   }

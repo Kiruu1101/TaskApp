@@ -19,6 +19,7 @@ const SettingPage = () => {
     useForm({
       defaultValues: { 
         name: userName ,
+        email: userEmail,       //Email id and name is prefilled.
       },
     });
 
